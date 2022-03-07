@@ -6,3 +6,25 @@ let order = [
   { itemName: "Hot Coffee", quantity: 2, unitPrice: 1.0 },
   { itemName: "Hash Brown", quantity: 4, unitPrice: 0.4 },
 ];
+
+const takeOutOrder = (arr) => {
+  let total = 0;
+
+  let message = `QTY     ITEM                   TOTAL`;
+  console.table(message);
+
+  arr.forEach((obj) => {
+    const { itemName: item, quantity: value, unitPrice: price } = obj;
+
+    let totalValueAndPrice = parseFloat(value * price).toFixed(2);
+
+    message = `${value}       ${item}              ${totalValueAndPrice}`;
+
+    total += value * price;
+
+    console.table(message);
+  });
+  console.log("Total: " + total);
+};
+
+takeOutOrder(order);
